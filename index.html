@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Bhawna ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ff5f6d, #ffc371);
+  text-align: center;
+  overflow-x: hidden;
+  transition: background 1s;
+}
+
+h1 {
+  margin-top: 40px;
+  color: #7a0000;
+  font-size: 44px;
+}
+
+.message {
+  font-size: 22px;
+  margin: 20px;
+}
+
+.gallery img {
+  width: 240px;
+  border-radius: 15px;
+  margin: 10px;
+}
+
+button {
+  padding: 15px 35px;
+  font-size: 18px;
+  border: none;
+  border-radius: 40px;
+  margin: 15px;
+  cursor: pointer;
+}
+
+.yes {
+  background: red;
+  color: white;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.no {
+  background: black;
+  color: white;
+  position: absolute;
+}
+
+.heart, .kiss {
+  position: fixed;
+  font-size: 28px;
+  animation: float 4s linear forwards;
+}
+
+@keyframes float {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-120vh); opacity: 0; }
+}
+
+#final {
+  display: none;
+  font-size: 32px;
+  color: #5a0000;
+  margin-top: 30px;
+  animation: pop 1s ease-in-out;
+}
+
+@keyframes pop {
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+
+.shake {
+  animation: shake 0.4s;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  50% { transform: translateX(10px); }
+  75% { transform: translateX(-10px); }
+  100% { transform: translateX(0); }
+}
+</style>
+</head>
+
+<body>
+
+<h1>Hey Bhawna ❤️</h1>
+
+<div class="message">
+  Cute face. Dangerous smile.  
+  And a heart I’ve already lost to you 😏  
+</div>
+
+<div class="gallery">
+  <img src="photo1.jpg">
+  <img src="photo2.jpg">
+  <img src="photo3.jpg">
+</div>
+
+<h2>Will you be my Valentine? 😍</h2>
+
+<button class="yes" onclick="yesClicked()">YES 😍</button>
+<button class="no" id="noBtn">NO 🙄</button>
+
+<div id="final">
+  I KNEW IT ❤️🔥  
+  <br><br>
+  Bhawna, you’re officially my favorite notification 😈💋
+</div>
+
+<audio id="music" autoplay loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+// NO button runs
+const noBtn = document.getElementById("noBtn");
+noBtn.addEventListener("mouseover", () => {
+  noBtn.style.left = Math.random() * 80 + "vw";
+  noBtn.style.top = Math.random() * 80 + "vh";
+});
+
+// YES explosion
+function yesClicked() {
+  document.body.classList.add("shake");
+  document.body.style.background = "linear-gradient(135deg,#ff0844,#ffb199)";
+  document.getElementById("final").style.display = "block";
+
+  const music = document.getElementById("music");
+  music.volume = 1.0;
+  music.play();
+
+  for (let i = 0; i < 50; i++) {
+    setTimeout(() => {
+      const el = document.createElement("div");
+      el.className = Math.random() > 0.5 ? "heart" : "kiss";
+      el.innerHTML = el.className === "heart" ? "❤️" : "💋";
+      el.style.left = Math.random() * 100 + "vw";
+      el.style.bottom = "0";
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 4000);
+    }, i * 50);
+  }
+}
+</script>
+
+</body>
+</html>
+
